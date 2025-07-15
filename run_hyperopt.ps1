@@ -1,0 +1,1 @@
+freqtrade hyperopt --strategy ReinforcedSmoothScalp --epochs 100 --spaces buy sell roi stoploss --hyperopt-loss SharpeHyperOptLoss --timeframe 1m 

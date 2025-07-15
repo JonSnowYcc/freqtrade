@@ -1,0 +1,37 @@
+{
+  "strategy_name": "ADXMomentum",
+  "params": {
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "adx_period": 25,
+      "buy_adx_threshold": 25,
+      "buy_plus_di_threshold": 50,
+      "di_period": 48,
+      "mom_period": 32
+    },
+    "sell": {
+      "sell_adx_threshold": 43,
+      "sell_minus_di_threshold": 26
+    },
+    "protection": {},
+    "roi": {
+      "0": 0.143,
+      "30": 0.093,
+      "51": 0.032,
+      "115": 0
+    },
+    "stoploss": {
+      "stoploss": -0.101
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-07-15 09:03:16.457035+00:00"
+}

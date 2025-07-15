@@ -1,3 +1,26 @@
+# --- 策略总结 ---
+# 策略名称: HourBasedStrategy (基于小时的策略)
+#
+# 盈利逻辑:
+# 该策略是一种纯粹的"时间模式"策略，它完全忽略了价格、成交量和任何传统的技术指标。
+# 其唯一的交易依据是一天中的特定时间段。
+# 策略的核心假设是：市场的行为在一天24小时内存在周期性规律，例如，亚洲、欧洲、美洲交易时段的活跃度不同，
+# 可能导致在某些特定时间段内，价格上涨或下跌的概率更高。
+#   - 买入(Entry): 如果当前K线的小时数(0-23)落在一个通过超参数优化找到的"最佳买入时间窗口"内 (例如，早上7点到下午6点之间)，则产生买入信号。
+#   - 卖出(Exit): 如果当前小时数落在一个独立的"最佳卖出时间窗口"内，则产生卖出信号。
+# 该策略完全依赖于大量的历史数据回测和超参数优化，来找出特定交易对在统计上最有利可图的买入和卖出小时区间。
+#
+# 优点:
+#   - 逻辑极简: 策略逻辑非常简单，易于理解和实现。
+#   - 捕捉周期性: 有可能捕捉到由市场参与者作息、宏观数据发布等因素造成的日内周期性规律，这是传统技术指标可能忽略的维度。
+#   - 不受价格噪音干扰: 由于不看价格，可以避免被市场的短期随机波动（噪音）所迷惑。
+#
+# 缺点:
+#   - 严重依赖历史数据: 策略的有效性完全建立在"历史会重演"的假设上。如果市场的日内周期性发生改变（例如，由于新的大型参与者入场或市场规则改变），策略将立即失效。
+#   - 过拟合风险高: 非常容易在历史数据上找到看似完美的"时间窗口"，但这可能只是数据挖掘的巧合，在未来并不适用。
+#   - 忽略关键信息: 完全忽略价格和成交量等市场关键信息，可能导致在明显不利的价格趋势中仅仅因为时间到了就进行买入。
+#   - 适用性窄: 为某个交易对优化的时间窗口，几乎不可能适用于另一个交易对。
+
 # Hour Strategy
 # In this strategy we try to find the best hours to buy and sell in a day.(in hourly timeframe)
 # Because of that you should just use 1h timeframe on this strategy.
@@ -7,7 +30,7 @@
 # freqtrade hyperopt --hyperopt-loss SharpeHyperOptLoss --strategy HourBasedStrategy -e 200
 
 
-from freqtrade.strategy import IntParameter, IStrategy
+from freqtrade.strategy import IntParameter, IStrategy, RealParameter
 from pandas import DataFrame
 
 # --------------------------------
@@ -63,24 +86,29 @@ class HourBasedStrategy(IStrategy):
     }
 
     # ROI table:
-    minimal_roi = {
-        "0": 0.528,
-        "169": 0.113,
-        "528": 0.089,
-        "1837": 0
-    }
+    @property
+    def minimal_roi(self):
+        return {
+            "0": self.roi_p1.value,
+            "169": self.roi_p2.value,
+            "528": self.roi_p3.value,
+            "1837": 0
+        }
+    roi_p1 = RealParameter(0.4, 0.7, default=0.528, space='roi', optimize=True)
+    roi_p2 = RealParameter(0.08, 0.2, default=0.113, space='roi', optimize=True)
+    roi_p3 = RealParameter(0.05, 0.1, default=0.089, space='roi', optimize=True)
 
     # Stoploss:
-    stoploss = -0.10
+    stoploss = RealParameter(-0.15, -0.05, default=-0.10, space='protection', optimize=True)
 
     # Optimal timeframe
     timeframe = '1h'
 
-    buy_hour_min = IntParameter(0, 24, default=1, space='buy')
-    buy_hour_max = IntParameter(0, 24, default=0, space='buy')
+    buy_hour_min = IntParameter(0, 23, default=4, space='buy', optimize=True)
+    buy_hour_max = IntParameter(0, 23, default=21, space='buy', optimize=True)
 
-    sell_hour_min = IntParameter(0, 24, default=1, space='sell')
-    sell_hour_max = IntParameter(0, 24, default=0, space='sell')
+    sell_hour_min = IntParameter(0, 23, default=21, space='sell', optimize=True)
+    sell_hour_max = IntParameter(0, 23, default=9, space='sell', optimize=True)
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe['hour'] = dataframe['date'].dt.hour
