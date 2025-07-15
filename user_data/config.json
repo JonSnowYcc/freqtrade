@@ -81,6 +81,9 @@
             "username": "18351936006@163.com",
             "password": "QQi8VKn3cKHSNqEq",
             "recipient": "18351936006@163.com"
-        }
+        },
+        "twitter_bearer_token": "FgMoSDZ7VFMFzIfLMYRlvVKLLtCGns0FyGVWfmGl6VTJ3w9GaX",
+        "bailian_api_key": "sk-b810649f5fc1465ab66c0a8c8bacbae3",
+        "target_pair": "TRUMP/USDT"
     }
 } 
