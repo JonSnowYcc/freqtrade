@@ -1,0 +1,11 @@
+{
+  "strategy_name": "SwingHighToSky",
+  "超参优化结果": {
+    "总收益": "0.40259480",
+    "收益率": "   0.04%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "*    6/100:      2 trades. 2/0/0 Wins/Draws/Losses. Avg profit   0.67%. Median profit   0.67%. Total profit  0.40259480 USDT (   0.04%). Avg duration 4:30:00 min. Objective: 2.21369",
+    "完整输出": "\nBest result:\n\n*    6/100:      2 trades. 2/0/0 Wins/Draws/Losses. Avg profit   0.67%. Median profit   0.67%. Total profit  0.40259480 USDT (   0.04%). Avg duration 4:30:00 min. Objective: 2.21369\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"buy_cci\": 187,\n        \"buy_cciTime\": 43,\n        \"buy_rsi\": 18,\n        \"buy_rsiTime\": 45,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_cci\": -106,  # value loaded from strategy\n        \"sell_cciTime\": 66,  # value loaded from strategy\n        \"sell_rsi\": 88,  # value loaded from strategy\n        \"sell_rsiTime\": 45,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.216,\n        \"33\": 0.133,\n        \"135\": 0.027,\n        \"267\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

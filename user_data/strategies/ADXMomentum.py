@@ -37,18 +37,18 @@ class ADXMomentum(IStrategy):
     # 通过 hyperopt 找到的优化参数
     
     # ROI table:
-    @property
-    def minimal_roi(self):
-        return {
+    roi_p1 = RealParameter(0.1, 0.2, default=0.143, space='roi', optimize=True)
+    roi_p2 = RealParameter(0.05, 0.15, default=0.093, space='roi', optimize=True)
+    roi_p3 = RealParameter(0.01, 0.05, default=0.032, space='roi', optimize=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "0": self.roi_p1.value,
             "30": self.roi_p2.value,
             "51": self.roi_p3.value,
             "115": 0
         }
-    roi_p1 = RealParameter(0.1, 0.2, default=0.143, space='roi', optimize=True)
-    roi_p2 = RealParameter(0.05, 0.15, default=0.093, space='roi', optimize=True)
-    roi_p3 = RealParameter(0.01, 0.05, default=0.032, space='roi', optimize=True)
-
 
     # 止损:
     stoploss = RealParameter(-0.15, -0.05, default=-0.101, space='protection', optimize=True)

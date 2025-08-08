@@ -1,0 +1,49 @@
+{
+  "strategy_name": "ClucMay72018",
+  "params": {
+    "stoploss": {
+      "stoploss": -0.1
+    },
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "adx_period": 12,
+      "bb_std": 2.557015647291,
+      "bb_window": 29,
+      "buy_bb_factor": 0.9724479324283,
+      "buy_volume_multiplier": 27,
+      "ema_period": 59,
+      "emarsi_period": 13,
+      "macd_fast": 14,
+      "macd_signal": 10,
+      "macd_slow": 33,
+      "rsi_period": 4,
+      "volume_rolling_window": 25
+    },
+    "sell": {},
+    "protection": {},
+    "roi": {
+      "0": 0.379,
+      "43": 0.092,
+      "92": 0.042,
+      "407": 0
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-07-16 10:03:43.501305+00:00",
+  "超参优化结果": {
+    "总收益": "-0.56539284",
+    "收益率": "  -0.06%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "71/100:      3 trades. 2/0/1 Wins/Draws/Losses. Avg profit  -0.63%. Median profit   4.19%. Total profit -0.56539284 USDT (  -0.06%). Avg duration 1:10:00 min. Objective: 1.95750",
+    "完整输出": "\nBest result:\n\n    71/100:      3 trades. 2/0/1 Wins/Draws/Losses. Avg profit  -0.63%. Median profit   4.19%. Total profit -0.56539284 USDT (  -0.06%). Avg duration 1:10:00 min. Objective: 1.95750\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 12,\n        \"bb_std\": 2.55702,\n        \"bb_window\": 29,\n        \"buy_bb_factor\": 0.97245,\n        \"buy_volume_multiplier\": 27,\n        \"ema_period\": 59,\n        \"emarsi_period\": 13,\n        \"macd_fast\": 14,\n        \"macd_signal\": 10,\n        \"macd_slow\": 33,\n        \"rsi_period\": 4,\n        \"volume_rolling_window\": 25,\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.379,\n        \"43\": 0.092,\n        \"92\": 0.042,\n        \"407\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

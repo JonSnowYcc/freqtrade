@@ -50,14 +50,12 @@ class ASDTSRockwellTrading(IStrategy):
     roi_p3 = RealParameter(0.01, 0.04, default=0.03, space='roi', optimize=True)
     roi_p4 = RealParameter(0.005, 0.02, default=0.01, space='roi', optimize=True)
 
-    @property
-    def minimal_roi(self):
-        return {
-            "60": self.roi_p4.value,
-            "30": self.roi_p3.value,
-            "20": self.roi_p2.value,
-            "0": self.roi_p1.value
-        }
+    minimal_roi = {
+        "60": 0.01,
+        "30": 0.03,
+        "20": 0.04,
+        "0": 0.05
+    }
 
     # Optimal stoploss designed for the strategy
     # This attribute will be overridden if the config file contains "stoploss"

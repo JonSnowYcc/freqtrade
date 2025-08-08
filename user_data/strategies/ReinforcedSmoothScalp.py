@@ -56,12 +56,9 @@ class ReinforcedSmoothScalp(IStrategy):
     # 为策略设计的最小回报率(ROI)。
     # Freqtrade的超参数优化会自动寻找最佳值。
     minimal_roi_val = RealParameter(0.01, 0.05, default=0.02, space='roi')
-
-    @property
-    def minimal_roi(self):
-        return {
-            "0": self.minimal_roi_val.value
-        }
+    minimal_roi = {
+        "0": 0.02
+    }
 
     # 为策略设计的优化止损。
     # Freqtrade的超参数优化会自动寻找最佳值。

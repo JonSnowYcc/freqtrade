@@ -49,19 +49,19 @@ class Strategy001_custom_exit(IStrategy):
     INTERFACE_VERSION: int = 3
     # 为该策略设计的最小投资回报率(ROI)。
     # 如果配置文件中包含 "minimal_roi"，此属性将被覆盖。
-    @property
-    def minimal_roi(self):
-        return {
-            "60": self.roi_p1.value,
-            "30": self.roi_p2.value,
-            "20": self.roi_p3.value,
-            "0": self.roi_p4.value
-        }
     roi_p1 = RealParameter(0.005, 0.02, default=0.01, space='roi', optimize=True)
     roi_p2 = RealParameter(0.01, 0.04, default=0.03, space='roi', optimize=True)
     roi_p3 = RealParameter(0.02, 0.05, default=0.04, space='roi', optimize=True)
     roi_p4 = RealParameter(0.04, 0.08, default=0.05, space='roi', optimize=True)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
+            "60": self.roi_p1.value,
+            "30": self.roi_p2.value,
+            "20": self.roi_p3.value,
+            "0": self.roi_p4.value
+        }
 
     # 为该策略设计的优化止损。
     # 如果配置文件中包含 "stoploss"，此属性将被覆盖。

@@ -53,9 +53,9 @@ class MACDStrategy(IStrategy):
     roi_p3 = RealParameter(0.01, 0.04, default=0.03, space='roi', optimize=True)
     roi_p4 = RealParameter(0.005, 0.02, default=0.01, space='roi', optimize=True)
 
-    @property
-    def minimal_roi(self):
-        return {
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "60": self.roi_p4.value,
             "30": self.roi_p3.value,
             "20": self.roi_p2.value,

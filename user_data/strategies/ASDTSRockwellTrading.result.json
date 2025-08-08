@@ -1,0 +1,11 @@
+{
+  "strategy_name": "ASDTSRockwellTrading",
+  "超参优化结果": {
+    "最优参数": {
+      "minimal_roi": {},
+      "stoploss": -0.1
+    },
+    "完整输出": "\nBest result:\n\n*    5/100:    962 trades. 245/0/717 Wins/Draws/Losses. Avg profit  -0.23%. Median profit  -0.44%. Total profit -66.19991869 USDT (  -6.62%). Avg duration 2:43:00 min. Objective: 2.74932\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"macd_fast_period\": 14,\n        \"macd_signal_period\": 14,\n        \"macd_slow_period\": 34,\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.163,\n        \"115\": 0.146,\n        \"271\": 0.055,\n        \"585\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  },
+  "回测结果": {}
+}

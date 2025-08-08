@@ -1,0 +1,35 @@
+{
+  "strategy_name": "AdxSmas",
+  "params": {
+    "stoploss": {
+      "stoploss": -0.1
+    },
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "adx_period": 17,
+      "buy_adx_threshold": 38,
+      "long_sma_period": 7,
+      "short_sma_period": 4
+    },
+    "sell": {
+      "sell_adx_threshold": 25
+    },
+    "protection": {},
+    "roi": {
+      "0": 0.34,
+      "103": 0.065,
+      "245": 0.016,
+      "577": 0
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-08-08 03:12:47.137488+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "strategy_name": "Quickie",
+  "超参优化结果": {
+    "总收益": "-5.00304612",
+    "收益率": "  -0.50%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "93/100:    162 trades. 69/78/15 Wins/Draws/Losses. Avg profit  -0.10%. Median profit   0.00%. Total profit -5.00304612 USDT (  -0.50%). Avg duration 1 day, 1:27:00 min. Objective: 2.27105",
+    "完整输出": "\nBest result:\n\n    93/100:    162 trades. 69/78/15 Wins/Draws/Losses. Avg profit  -0.10%. Median profit   0.00%. Total profit -5.00304612 USDT (  -0.50%). Avg duration 1 day, 1:27:00 min. Objective: 2.27105\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 15,\n        \"bb_std\": 2.00086,\n        \"bb_window\": 21,\n        \"buy_adx_threshold\": 26,\n        \"macd_fast\": 14,\n        \"macd_signal\": 13,\n        \"macd_slow\": 34,\n        \"sma_200_period\": 231,\n        \"sma_50_period\": 43,\n        \"tema_period\": 12,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_adx_threshold\": 70,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.281,\n        \"113\": 0.129,\n        \"245\": 0.054,\n        \"570\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

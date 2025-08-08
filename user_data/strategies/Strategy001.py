@@ -45,15 +45,12 @@ class Strategy001(IStrategy):
 
     INTERFACE_VERSION: int = 3
     # 为该策略设计的最小投资回报率(ROI)。
-    # 如果配置文件中包含 "minimal_roi"，此属性将被覆盖。
-    @property
-    def minimal_roi(self):
-        return {
-            "60": self.roi_p1.value,
-            "30": self.roi_p2.value,
-            "20": self.roi_p3.value,
-            "0": self.roi_p4.value
-        }
+    minimal_roi = {
+        "60": 0.01,
+        "30": 0.03,
+        "20": 0.04,
+        "0": 0.05
+    }
     roi_p1 = RealParameter(0.005, 0.02, default=0.01, space='roi', optimize=True)
     roi_p2 = RealParameter(0.01, 0.04, default=0.03, space='roi', optimize=True)
     roi_p3 = RealParameter(0.02, 0.05, default=0.04, space='roi', optimize=True)

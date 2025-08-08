@@ -1,0 +1,65 @@
+{
+  "strategy_name": "SmoothOperator",
+  "params": {
+    "stoploss": {
+      "stoploss": -0.1
+    },
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "adx_period": 11,
+      "bsharp_fast_period": 7,
+      "bsharp_medium_period": 8,
+      "bsharp_slow_period": 11,
+      "buy_cci_extreme": -125,
+      "buy_cci_regular": -172,
+      "buy_cci_v_bottom": -145,
+      "buy_mfi_extreme": 9,
+      "buy_mfi_regular": 33,
+      "buy_rsi_regular": 22,
+      "buy_rsi_v_bottom": 20,
+      "cci_period": 17,
+      "entry_bb_std": 1.7666461360033,
+      "entry_bb_window": 27,
+      "final_smooth_tema_period": 17,
+      "mfi_period": 14,
+      "rsi_period": 13,
+      "sma_fast_period": 45,
+      "sma_medium_period": 89,
+      "sma_slow_period": 234,
+      "smooth_ema_period": 9,
+      "viz_bb_std": 2.6136956031741,
+      "viz_bb_window": 25
+    },
+    "sell": {
+      "sell_cci_regular": 200,
+      "sell_green_candle_count": 8,
+      "sell_rsi_regular": 70,
+      "sell_smooth_osc_level": 100
+    },
+    "protection": {},
+    "roi": {
+      "0": 0.171,
+      "111": 0.153,
+      "238": 0.057,
+      "302": 0
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-07-16 11:14:09.389623+00:00",
+  "超参优化结果": {
+    "总收益": "-0.59116054",
+    "收益率": "  -0.06%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "60/100:     27 trades. 12/10/5 Wins/Draws/Losses. Avg profit  -0.07%. Median profit   0.00%. Total profit -0.59116054 USDT (  -0.06%). Avg duration 12:18:00 min. Objective: 2.25798",
+    "完整输出": "\nBest result:\n\n    60/100:     27 trades. 12/10/5 Wins/Draws/Losses. Avg profit  -0.07%. Median profit   0.00%. Total profit -0.59116054 USDT (  -0.06%). Avg duration 12:18:00 min. Objective: 2.25798\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 11,\n        \"bsharp_fast_period\": 7,\n        \"bsharp_medium_period\": 8,\n        \"bsharp_slow_period\": 11,\n        \"buy_cci_extreme\": -125,\n        \"buy_cci_regular\": -172,\n        \"buy_cci_v_bottom\": -145,\n        \"buy_mfi_extreme\": 9,\n        \"buy_mfi_regular\": 33,\n        \"buy_rsi_regular\": 22,\n        \"buy_rsi_v_bottom\": 20,\n        \"cci_period\": 17,\n        \"entry_bb_std\": 1.76665,\n        \"entry_bb_window\": 27,\n        \"final_smooth_tema_period\": 17,\n        \"mfi_period\": 14,\n        \"rsi_period\": 13,\n        \"sma_fast_period\": 45,\n        \"sma_medium_period\": 89,\n        \"sma_slow_period\": 234,\n        \"smooth_ema_period\": 9,\n        \"viz_bb_std\": 2.6137,\n        \"viz_bb_window\": 25,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_cci_regular\": 200,  # value loaded from strategy\n        \"sell_green_candle_count\": 8,  # value loaded from strategy\n        \"sell_rsi_regular\": 70,  # value loaded from strategy\n        \"sell_smooth_osc_level\": 100,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.171,\n        \"111\": 0.153,\n        \"238\": 0.057,\n        \"302\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

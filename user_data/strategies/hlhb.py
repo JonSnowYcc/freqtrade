@@ -42,15 +42,12 @@ class hlhb(IStrategy):
     position_stacking = "True"
 
     # 为该策略设计的最小投资回报率(ROI)。
-    # 如果配置文件中包含 "minimal_roi"，此属性将被覆盖。
-    @property
-    def minimal_roi(self):
-        return {
-            "0": self.roi_p1.value,
-            "703": self.roi_p2.value,
-            "2849": self.roi_p3.value,
-            "5520": 0
-        }
+    minimal_roi = {
+        "0": 0.6225,
+        "703": 0.2187,
+        "2849": 0.0363,
+        "5520": 0
+    }
     roi_p1 = RealParameter(0.5, 0.8, default=0.6225, space='roi', optimize=True)
     roi_p2 = RealParameter(0.15, 0.3, default=0.2187, space='roi', optimize=True)
     roi_p3 = RealParameter(0.02, 0.05, default=0.0363, space='roi', optimize=True)

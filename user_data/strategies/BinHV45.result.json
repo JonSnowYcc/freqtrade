@@ -1,0 +1,11 @@
+{
+  "strategy_name": "BinHV45",
+  "超参优化结果": {
+    "总收益": "0.77998298",
+    "收益率": "   0.08%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "95/100:      1 trades. 1/0/0 Wins/Draws/Losses. Avg profit   2.60%. Median profit   2.60%. Total profit  0.77998298 USDT (   0.08%). Avg duration 2:30:00 min. Objective: 2.04978",
+    "完整输出": "\nBest result:\n\n    95/100:      1 trades. 1/0/0 Wins/Draws/Losses. Avg profit   2.60%. Median profit   2.60%. Total profit  0.77998298 USDT (   0.08%). Avg duration 2:30:00 min. Objective: 2.04978\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"buy_bb_std\": 2.99444,\n        \"buy_bb_window\": 23,\n        \"buy_bbdelta\": 12,\n        \"buy_closedelta\": 18,\n        \"buy_tail\": 20,\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.098,\n        \"64\": 0.076,\n        \"137\": 0.026,\n        \"195\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

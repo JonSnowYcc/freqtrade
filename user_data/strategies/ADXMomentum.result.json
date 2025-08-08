@@ -1,0 +1,11 @@
+{
+  "strategy_name": "ADXMomentum",
+  "超参优化结果": {
+    "最优参数": {
+      "minimal_roi": {},
+      "stoploss": -0.1
+    },
+    "完整输出": "\nBest result:\n\n    40/100:      8 trades. 6/2/0 Wins/Draws/Losses. Avg profit   1.64%. Median profit   2.00%. Total profit  3.94697566 USDT (   0.39%). Avg duration 9:11:00 min. Objective: 2.21276\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 23,\n        \"buy_adx_threshold\": 20,\n        \"buy_plus_di_threshold\": 40,\n        \"di_period\": 40,\n        \"mom_period\": 25,\n        \"sar_acceleration\": 0.02576,\n        \"sar_maximum\": 0.21209,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_adx_threshold\": 43,  # value loaded from strategy\n        \"sell_minus_di_threshold\": 26,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.124,\n        \"51\": 0.052,\n        \"210\": 0.02,\n        \"557\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  },
+  "回测结果": {}
+}

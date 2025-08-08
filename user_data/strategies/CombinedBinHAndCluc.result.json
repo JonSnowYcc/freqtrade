@@ -1,0 +1,11 @@
+{
+  "strategy_name": "CombinedBinHAndCluc",
+  "超参优化结果": {
+    "总收益": "3.11236354",
+    "收益率": "   0.31%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "91/100:     16 trades. 13/2/1 Wins/Draws/Losses. Avg profit   0.65%. Median profit   1.23%. Total profit  3.11236354 USDT (   0.31%). Avg duration 6:08:00 min. Objective: 2.21986",
+    "完整输出": "\nBest result:\n\n    91/100:     16 trades. 13/2/1 Wins/Draws/Losses. Avg profit   0.65%. Median profit   1.23%. Total profit  3.11236354 USDT (   0.31%). Avg duration 6:08:00 min. Objective: 2.21986\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"bin_bb_std\": 1.57946,\n        \"bin_bb_window\": 24,\n        \"bin_bbdelta_factor\": 0.00946,\n        \"bin_closedelta_factor\": 0.02819,\n        \"bin_tail_factor\": 0.32968,\n        \"cluc_bb_factor\": 0.97847,\n        \"cluc_bb_std\": 2.6333,\n        \"cluc_bb_window\": 27,\n        \"cluc_ema_period\": 60,\n        \"cluc_volume_multiplier\": 27,\n        \"cluc_volume_rolling_window\": 27,\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.12,\n        \"114\": 0.074,\n        \"198\": 0.023,\n        \"555\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

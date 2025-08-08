@@ -72,17 +72,18 @@ class PowerTower(IStrategy):
     # Avg duration 10:58:00 min. Objective: -9.86920
     
     # ROI table
-    @property
-    def minimal_roi(self):
-        return {
+    roi_p1 = RealParameter(0.15, 0.3, default=0.213, space='roi', optimize=True)
+    roi_p2 = RealParameter(0.03, 0.08, default=0.048, space='roi', optimize=True)
+    roi_p3 = RealParameter(0.01, 0.05, default=0.029, space='roi', optimize=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "0": self.roi_p1.value,
             "39": self.roi_p2.value,
             "56": self.roi_p3.value,
             "159": 0
         }
-    roi_p1 = RealParameter(0.15, 0.3, default=0.213, space='roi', optimize=True)
-    roi_p2 = RealParameter(0.03, 0.08, default=0.048, space='roi', optimize=True)
-    roi_p3 = RealParameter(0.01, 0.05, default=0.029, space='roi', optimize=True)
 
     # 止损:
     stoploss = RealParameter(-0.3, -0.2, default=-0.288, space='protection', optimize=True)

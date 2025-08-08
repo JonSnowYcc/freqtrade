@@ -54,13 +54,11 @@ class BreakEven(IStrategy):
 
     INTERFACE_VERSION: int = 3
     # 如果配置文件中包含 "minimal_roi"，此属性将被覆盖
-    @property
-    def minimal_roi(self):
-        return {
-            self.roi_t2.value: self.roi_p2.value,
-            self.roi_t1.value: self.roi_p1.value,
-            0: 0.05 # start with a higher profit roi
-        }
+    minimal_roi = {
+        "20": 0.0,
+        "10": 0.0,
+        "0": 0.05
+    }
         
     roi_t1 = IntParameter(0, 20, default=10, space='roi', optimize=True)
     roi_p1 = RealParameter(0.0, 0.05, default=0.0, space='roi', optimize=True)

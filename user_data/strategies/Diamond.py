@@ -87,14 +87,12 @@ class Diamond(IStrategy):
     }
 
     # 投资回报率 (ROI) 表:
-    @property
-    def minimal_roi(self):
-        return {
-            "0": self.roi_p1.value,
-            "13": self.roi_p2.value,
-            "51": self.roi_p3.value,
-            "170": 0
-        }
+    minimal_roi = {
+        "0": 0.242,
+        "13": 0.044,
+        "51": 0.02,
+        "170": 0
+    }
     roi_p1 = RealParameter(0.15, 0.3, default=0.242, space='roi', optimize=True)
     roi_p2 = RealParameter(0.02, 0.08, default=0.044, space='roi', optimize=True)
     roi_p3 = RealParameter(0.01, 0.03, default=0.02, space='roi', optimize=True)

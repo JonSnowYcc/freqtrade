@@ -1,0 +1,11 @@
+{
+  "strategy_name": "AdxSmas",
+  "超参优化结果": {
+    "最优参数": {
+      "minimal_roi": {},
+      "stoploss": -0.1
+    },
+    "完整输出": "\nBest result:\n\n    98/100:    213 trades. 95/15/103 Wins/Draws/Losses. Avg profit  -0.20%. Median profit   0.00%. Total profit -13.10926486 USDT (  -1.31%). Avg duration 8:08:00 min. Objective: 2.34827\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 17,\n        \"buy_adx_threshold\": 38,\n        \"long_sma_period\": 7,\n        \"short_sma_period\": 4,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_adx_threshold\": 25,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.34,\n        \"103\": 0.065,\n        \"245\": 0.016,\n        \"577\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  },
+  "回测结果": {}
+}

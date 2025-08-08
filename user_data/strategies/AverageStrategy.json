@@ -1,0 +1,39 @@
+{
+  "strategy_name": "AverageStrategy",
+  "params": {
+    "stoploss": {
+      "stoploss": -0.1
+    },
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "buy_range_long": 104,
+      "buy_range_short": 11
+    },
+    "sell": {},
+    "protection": {},
+    "roi": {
+      "0": 0.257,
+      "52": 0.118,
+      "92": 0.032,
+      "210": 0
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-07-16 09:58:43.182923+00:00",
+  "超参优化结果": {
+    "总收益": "-15.20074649",
+    "收益率": "  -1.52%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "45/100:    325 trades. 105/67/153 Wins/Draws/Losses. Avg profit  -0.16%. Median profit   0.00%. Total profit -15.20074649 USDT (  -1.52%). Avg duration 3:16:00 min. Objective: 2.20854",
+    "完整输出": "\nBest result:\n\n    45/100:    325 trades. 105/67/153 Wins/Draws/Losses. Avg profit  -0.16%. Median profit   0.00%. Total profit -15.20074649 USDT (  -1.52%). Avg duration 3:16:00 min. Objective: 2.20854\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"buy_range_long\": 104,\n        \"buy_range_short\": 11,\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.257,\n        \"52\": 0.118,\n        \"92\": 0.032,\n        \"210\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

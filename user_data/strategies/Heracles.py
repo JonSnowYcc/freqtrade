@@ -68,14 +68,12 @@ class Heracles(IStrategy):
     }
 
     # 投资回报率 (ROI) 表:
-    @property
-    def minimal_roi(self):
-        return {
-            "0": self.roi_p1.value,
-            "644": self.roi_p2.value,
-            "3269": self.roi_p3.value,
-            "7289": 0
-        }
+    minimal_roi = {
+        "0": 0.598,
+        "644": 0.166,
+        "3269": 0.115,
+        "7289": 0
+    }
     roi_p1 = RealParameter(0.4, 0.8, default=0.598, space='roi', optimize=True)
     roi_p2 = RealParameter(0.1, 0.3, default=0.166, space='roi', optimize=True)
     roi_p3 = RealParameter(0.05, 0.2, default=0.115, space='roi', optimize=True)

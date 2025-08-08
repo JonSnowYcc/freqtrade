@@ -40,7 +40,7 @@ from functools import reduce
 
 class MultiMa(IStrategy):
     # 优化结果示例:
-    # 111/2000:     18 trades. 12/4/2 Wins/Draws/Losses. Avg profit   9.72%. Median profit   3.01%. Total profit  733.01234143 USDT (  73.30%). Avg duration 2 days, 18:40:00 min. Objective: 1.67048
+    # 111/2000:     18 trades. 12/4/4 Wins/Draws/Losses. Avg profit   9.72%. Median profit   3.01%. Total profit  733.01234143 USDT (  73.30%). Avg duration 2 days, 18:40:00 min. Objective: 1.67048
 
     INTERFACE_VERSION: int = 3
     # 买入超参数空间:
@@ -56,17 +56,18 @@ class MultiMa(IStrategy):
     }
 
     # 投资回报率 (ROI) 表:
-    @property
-    def minimal_roi(self):
-        return {
+    roi_p1 = RealParameter(0.4, 0.7, default=0.523, space='roi', optimize=True)
+    roi_p2 = RealParameter(0.1, 0.2, default=0.123, space='roi', optimize=True)
+    roi_p3 = RealParameter(0.05, 0.1, default=0.076, space='roi', optimize=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "0": self.roi_p1.value,
             "1553": self.roi_p2.value,
             "2332": self.roi_p3.value,
             "3169": 0
         }
-    roi_p1 = RealParameter(0.4, 0.7, default=0.523, space='roi', optimize=True)
-    roi_p2 = RealParameter(0.1, 0.2, default=0.123, space='roi', optimize=True)
-    roi_p3 = RealParameter(0.05, 0.1, default=0.076, space='roi', optimize=True)
 
     # 止损:
     stoploss = RealParameter(-0.4, -0.3, default=-0.345, space='protection', optimize=True)

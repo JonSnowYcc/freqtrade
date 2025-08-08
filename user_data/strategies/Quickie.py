@@ -46,19 +46,26 @@ class Quickie(IStrategy):
 
     INTERFACE_VERSION: int = 3
     # ROI table
-    @property
-    def minimal_roi(self):
-        return {
-            "100": self.roi_p1.value,
-            "30": self.roi_p2.value,
-            "15": self.roi_p3.value,
-            "10": self.roi_p4.value,
-        }
+    minimal_roi = {
+        "100": 0.01,
+        "30": 0.03,
+        "15": 0.06,
+        "10": 0.15
+    }
 
     roi_p1 = RealParameter(0.005, 0.02, default=0.01, space='roi', optimize=True)
     roi_p2 = RealParameter(0.01, 0.05, default=0.03, space='roi', optimize=True)
     roi_p3 = RealParameter(0.04, 0.08, default=0.06, space='roi', optimize=True)
     roi_p4 = RealParameter(0.1, 0.2, default=0.15, space='roi', optimize=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
+            "100": self.roi_p1.value,
+            "30": self.roi_p2.value,
+            "15": self.roi_p3.value,
+            "10": self.roi_p4.value
+        }
 
     # Optimal stoploss designed for the strategy
     # This attribute will be overridden if the config file contains "stoploss"

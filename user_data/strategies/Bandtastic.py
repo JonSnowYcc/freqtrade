@@ -43,14 +43,12 @@ class Bandtastic(IStrategy):
     timeframe = '15m'
 
     # 投资回报率 (ROI) 表:
-    @property
-    def minimal_roi(self):
-        return {
-            "0": self.roi_p1.value,
-            "69": self.roi_p2.value,
-            "229": self.roi_p3.value,
-            "566": 0
-        }
+    minimal_roi = {
+        "0": 0.162,
+        "69": 0.097,
+        "229": 0.061,
+        "566": 0
+    }
     roi_p1 = RealParameter(0.1, 0.2, default=0.162, space='roi', optimize=True)
     roi_p2 = RealParameter(0.05, 0.12, default=0.097, space='roi', optimize=True)
     roi_p3 = RealParameter(0.03, 0.08, default=0.061, space='roi', optimize=True)

@@ -1,0 +1,11 @@
+{
+  "strategy_name": "CCIStrategy",
+  "超参优化结果": {
+    "总收益": "2.13379251",
+    "收益率": "   0.21%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "56/100:     24 trades. 10/14/0 Wins/Draws/Losses. Avg profit   0.30%. Median profit   0.00%. Total profit  2.13379251 USDT (   0.21%). Avg duration 1 day, 3:01:00 min. Objective: 2.22856",
+    "完整输出": "\nBest result:\n\n    56/100:     24 trades. 10/14/0 Wins/Draws/Losses. Avg profit   0.30%. Median profit   0.00%. Total profit  2.13379251 USDT (   0.21%). Avg duration 1 day, 3:01:00 min. Objective: 2.22856\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"bb_stds\": 2.14675,\n        \"bb_window\": 28,\n        \"buy_cci1_threshold\": -105,\n        \"buy_cci2_threshold\": -136,\n        \"buy_cmf_threshold\": -0.02693,\n        \"buy_mfi_threshold\": 39,\n        \"cci1_period\": 224,\n        \"cci2_period\": 22,\n        \"cmf_period\": 21,\n        \"mfi_period\": 13,\n        \"res_long_period\": 211,\n        \"res_medium_period\": 57,\n        \"res_short_period\": 21,\n        \"res_sma_period\": 115,\n        \"resample_factor\": 2,\n        \"rsi_period\": 24,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_cci1_threshold\": 100,  # value loaded from strategy\n        \"sell_cci2_threshold\": 100,  # value loaded from strategy\n        \"sell_cmf_threshold\": 0.3,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.409,\n        \"48\": 0.12,\n        \"191\": 0.059,\n        \"407\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

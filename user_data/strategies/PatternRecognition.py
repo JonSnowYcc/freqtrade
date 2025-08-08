@@ -59,17 +59,18 @@ class PatternRecognition(IStrategy):
     }
 
     # 投资回报率 (ROI) 表:
-    @property
-    def minimal_roi(self):
-        return {
+    roi_p1 = RealParameter(0.5, 1.2, default=0.936, space='roi', optimize=True)
+    roi_p2 = RealParameter(0.2, 0.5, default=0.332, space='roi', optimize=True)
+    roi_p3 = RealParameter(0.05, 0.15, default=0.086, space='roi', optimize=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "0": self.roi_p1.value,
             "5271": self.roi_p2.value,
             "18147": self.roi_p3.value,
             "48152": 0
         }
-    roi_p1 = RealParameter(0.5, 1.2, default=0.936, space='roi', optimize=True)
-    roi_p2 = RealParameter(0.2, 0.5, default=0.332, space='roi', optimize=True)
-    roi_p3 = RealParameter(0.05, 0.15, default=0.086, space='roi', optimize=True)
 
     # 止损:
     stoploss = RealParameter(-0.3, -0.2, default=-0.288, space='protection', optimize=True)

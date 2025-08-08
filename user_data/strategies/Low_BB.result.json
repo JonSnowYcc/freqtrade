@@ -1,0 +1,11 @@
+{
+  "strategy_name": "Low_BB",
+  "超参优化结果": {
+    "总收益": "-2.09532373",
+    "收益率": "  -0.21%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "88/100:      2 trades. 1/0/1 Wins/Draws/Losses. Avg profit  -3.49%. Median profit  -3.49%. Total profit -2.09532373 USDT (  -0.21%). Avg duration 0:30:00 min. Objective: 1.92141",
+    "完整输出": "\nBest result:\n\n    88/100:      2 trades. 1/0/1 Wins/Draws/Losses. Avg profit  -3.49%. Median profit  -3.49%. Total profit -2.09532373 USDT (  -0.21%). Avg duration 0:30:00 min. Objective: 1.92141\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"bb_std\": 2.84439,\n        \"bb_window\": 18,\n        \"buy_bb_factor\": 0.97043,\n        \"macd_fast\": 18,\n        \"macd_signal\": 12,\n        \"macd_slow\": 21,\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.202,\n        \"46\": 0.033,\n        \"164\": 0.018,\n        \"425\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

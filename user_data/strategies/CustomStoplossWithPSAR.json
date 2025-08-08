@@ -1,0 +1,39 @@
+{
+  "strategy_name": "CustomStoplossWithPSAR",
+  "params": {
+    "stoploss": {
+      "stoploss": -0.1
+    },
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "sar_acceleration": 0.0409032467712,
+      "sar_maximum": 0.2095908810254
+    },
+    "sell": {},
+    "protection": {},
+    "roi": {
+      "0": 0.349,
+      "95": 0.093,
+      "268": 0.039,
+      "628": 0
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-07-16 10:17:34.906558+00:00",
+  "超参优化结果": {
+    "总收益": "-28.88722089",
+    "收益率": "  -2.89%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "*    8/100:    271 trades. 102/137/32 Wins/Draws/Losses. Avg profit  -0.35%. Median profit   0.00%. Total profit -28.88722089 USDT (  -2.89%). Avg duration 1 day, 5:34:00 min. Objective: 2.50991",
+    "完整输出": "\nBest result:\n\n*    8/100:    271 trades. 102/137/32 Wins/Draws/Losses. Avg profit  -0.35%. Median profit   0.00%. Total profit -28.88722089 USDT (  -2.89%). Avg duration 1 day, 5:34:00 min. Objective: 2.50991\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"sar_acceleration\": 0.0409,\n        \"sar_maximum\": 0.20959,\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.349,\n        \"95\": 0.093,\n        \"268\": 0.039,\n        \"628\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

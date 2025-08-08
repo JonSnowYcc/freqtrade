@@ -92,7 +92,7 @@ class CMCWinner(IStrategy):
         # MFI - 资金流量指标: Oversold:<20, Overbought:>80
         dataframe['mfi'] = ta.MFI(dataframe, timeperiod=self.mfi_period.value)
 
-		# CMO - 钱德动量振荡器: Oversold:<-50, Overbought:>50
+        # CMO - 钱德动量振荡器: Oversold:<-50, Overbought:>50
         dataframe['cmo'] = ta.CMO(dataframe, timeperiod=self.cmo_period.value)
 
         return dataframe

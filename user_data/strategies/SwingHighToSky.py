@@ -68,18 +68,18 @@ class SwingHighToSky(IStrategy):
     stoploss = RealParameter(-0.4, -0.3, default=-0.34338, space='protection', optimize=True)
 
     # 最小投资回报率
-    @property
-    def minimal_roi(self):
-        return {
+    roi_p1 = RealParameter(0.2, 0.4, default=0.27058, space='roi', optimize=True)
+    roi_p2 = RealParameter(0.05, 0.15, default=0.0853, space='roi', optimize=True)
+    roi_p3 = RealParameter(0.02, 0.08, default=0.04093, space='roi', optimize=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "0": self.roi_p1.value,
             "33": self.roi_p2.value,
             "64": self.roi_p3.value,
             "244": 0
         }
-    
-    roi_p1 = RealParameter(0.2, 0.4, default=0.27058, space='roi', optimize=True)
-    roi_p2 = RealParameter(0.05, 0.15, default=0.0853, space='roi', optimize=True)
-    roi_p3 = RealParameter(0.02, 0.08, default=0.04093, space='roi', optimize=True)
 
     # 可优化的买入参数
     buy_cci = IntParameter(low=-200, high=200, default=100, space='buy', optimize=True)

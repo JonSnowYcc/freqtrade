@@ -1,0 +1,11 @@
+{
+  "strategy_name": "SmoothScalp",
+  "超参优化结果": {
+    "总收益": "4.09262491",
+    "收益率": "   0.41%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "97/100:     11 trades. 7/3/1 Wins/Draws/Losses. Avg profit   1.24%. Median profit   0.93%. Total profit  4.09262491 USDT (   0.41%). Avg duration 8:22:00 min. Objective: 2.21033",
+    "完整输出": "\nBest result:\n\n    97/100:     11 trades. 7/3/1 Wins/Draws/Losses. Avg profit   1.24%. Median profit   0.93%. Total profit  4.09262491 USDT (   0.41%). Avg duration 8:22:00 min. Objective: 2.21033\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 23,\n        \"buy_adx\": 30,\n        \"buy_cci\": -190,\n        \"buy_mfi\": 17,\n        \"buy_stoch_threshold\": 17,\n        \"cci_period\": 29,\n        \"ema_period\": 12,\n        \"mfi_period\": 25,\n        \"rsi_period\": 18,\n        \"stoch_d_period\": 5,\n        \"stoch_k_period\": 4,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_cci\": 150,  # value loaded from strategy\n        \"sell_stoch_threshold\": 70,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.424,\n        \"83\": 0.136,\n        \"232\": 0.048,\n        \"508\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

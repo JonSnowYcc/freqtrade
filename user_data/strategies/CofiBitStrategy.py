@@ -57,10 +57,10 @@ class CofiBitStrategy(IStrategy):
     roi_p2 = RealParameter(0.05, 0.10, default=0.07, space='roi', optimize=True)
     roi_p3 = RealParameter(0.04, 0.08, default=0.06, space='roi', optimize=True)
     roi_p4 = RealParameter(0.03, 0.06, default=0.05, space='roi', optimize=True)
-    
-    @property
-    def minimal_roi(self):
-        return {
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "40": self.roi_p4.value,
             "30": self.roi_p3.value,
             "20": self.roi_p2.value,

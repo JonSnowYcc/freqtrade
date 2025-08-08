@@ -70,17 +70,18 @@ class UniversalMACD(IStrategy):
     # Objective: -11.63412
 
     # ROI table
-    @property
-    def minimal_roi(self):
-        return {
+    roi_p1 = RealParameter(0.15, 0.3, default=0.213, space='roi', optimize=True)
+    roi_p2 = RealParameter(0.05, 0.15, default=0.099, space='roi', optimize=True)
+    roi_p3 = RealParameter(0.01, 0.05, default=0.03, space='roi', optimize=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
             "0": self.roi_p1.value,
             "27": self.roi_p2.value,
             "60": self.roi_p3.value,
             "164": 0
         }
-    roi_p1 = RealParameter(0.15, 0.3, default=0.213, space='roi', optimize=True)
-    roi_p2 = RealParameter(0.05, 0.15, default=0.099, space='roi', optimize=True)
-    roi_p3 = RealParameter(0.01, 0.05, default=0.03, space='roi', optimize=True)
 
     # 止损:
     stoploss = RealParameter(-0.35, -0.25, default=-0.318, space='protection', optimize=True)

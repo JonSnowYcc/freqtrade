@@ -1,0 +1,11 @@
+{
+  "strategy_name": "mabStra",
+  "超参优化结果": {
+    "总收益": null,
+    "收益率": null,
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": null,
+    "完整输出": "No good result found for given optimization function in 100 epochs.\n"
+  }
+}

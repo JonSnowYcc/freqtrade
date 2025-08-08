@@ -1,0 +1,11 @@
+{
+  "strategy_name": "Scalp",
+  "超参优化结果": {
+    "总收益": "-1.28085171",
+    "收益率": "  -0.13%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "*   24/100:     41 trades. 18/0/23 Wins/Draws/Losses. Avg profit  -0.10%. Median profit  -0.09%. Total profit -1.28085171 USDT (  -0.13%). Avg duration 1:20:00 min. Objective: 1.96868",
+    "完整输出": "\nBest result:\n\n*   24/100:     41 trades. 18/0/23 Wins/Draws/Losses. Avg profit  -0.10%. Median profit  -0.09%. Total profit -1.28085171 USDT (  -0.13%). Avg duration 1:20:00 min. Objective: 1.96868\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 23,\n        \"bb_std\": 2.71928,\n        \"bb_window\": 21,\n        \"buy_adx\": 39,\n        \"buy_stoch_threshold\": 19,\n        \"ema_period\": 9,\n        \"stoch_d_period\": 7,\n        \"stoch_k_period\": 8,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_stoch_threshold\": 70,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.333,\n        \"92\": 0.16,\n        \"265\": 0.055,\n        \"482\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

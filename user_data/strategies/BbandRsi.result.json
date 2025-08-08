@@ -1,0 +1,11 @@
+{
+  "strategy_name": "BbandRsi",
+  "超参优化结果": {
+    "总收益": "2.42970101",
+    "收益率": "   0.24%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "59/100:     16 trades. 9/6/1 Wins/Draws/Losses. Avg profit   0.51%. Median profit   0.39%. Total profit  2.42970101 USDT (   0.24%). Avg duration 8:29:00 min. Objective: 2.22743",
+    "完整输出": "\nBest result:\n\n    59/100:     16 trades. 9/6/1 Wins/Draws/Losses. Avg profit   0.51%. Median profit   0.39%. Total profit  2.42970101 USDT (   0.24%). Avg duration 8:29:00 min. Objective: 2.22743\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"bb_std\": 1.53935,\n        \"bb_window\": 21,\n        \"buy_rsi_threshold\": 16,\n        \"rsi_period\": 21,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_rsi_threshold\": 70,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.39,\n        \"100\": 0.108,\n        \"196\": 0.043,\n        \"462\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

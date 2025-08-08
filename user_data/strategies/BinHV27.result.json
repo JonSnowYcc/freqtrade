@@ -1,0 +1,11 @@
+{
+  "strategy_name": "BinHV27",
+  "超参优化结果": {
+    "总收益": "1.40075572",
+    "收益率": "   0.14%",
+    "平均收益": null,
+    "交易次数": null,
+    "原始输出行": "83/100:     33 trades. 20/3/10 Wins/Draws/Losses. Avg profit   0.14%. Median profit   0.41%. Total profit  1.40075572 USDT (   0.14%). Avg duration 8:24:00 min. Objective: 2.23426",
+    "完整输出": "\nBest result:\n\n    83/100:     33 trades. 20/3/10 Wins/Draws/Losses. Avg profit   0.14%. Median profit   0.41%. Total profit  1.40075572 USDT (   0.14%). Avg duration 8:24:00 min. Objective: 2.23426\n\n\n    # Buy hyperspace params:\n    buy_params = {\n        \"adx_period\": 21,\n        \"bigup_divisor\": 321.03167,\n        \"buy_adx_1\": 31,\n        \"buy_adx_2\": 27,\n        \"buy_adx_3\": 31,\n        \"buy_emarsi_1\": 13,\n        \"buy_emarsi_2\": 20,\n        \"emarsi_period\": 6,\n        \"fastsma_period\": 146,\n        \"highsma_period\": 145,\n        \"lowsma_period\": 54,\n        \"minusdiema_period\": 21,\n        \"plusdiema_period\": 11,\n        \"rsi_period\": 12,\n        \"slowsma_period\": 213,\n    }\n\n    # Sell hyperspace params:\n    sell_params = {\n        \"sell_adx_1\": 30,  # value loaded from strategy\n        \"sell_emarsi_1\": 75,  # value loaded from strategy\n        \"sell_emarsi_2\": 80,  # value loaded from strategy\n    }\n\n    # ROI table:\n    minimal_roi = {\n        \"0\": 0.18,\n        \"63\": 0.122,\n        \"195\": 0.015,\n        \"417\": 0\n    }\n\n    # Stoploss:\n    stoploss = -0.1  # value loaded from strategy\n\n    # Trailing stop:\n    trailing_stop = False  # value loaded from strategy\n    trailing_stop_positive = None  # value loaded from strategy\n    trailing_stop_positive_offset = 0.0  # value loaded from strategy\n    trailing_only_offset_is_reached = False  # value loaded from strategy\n    \n\n    # Max Open Trades:\n    max_open_trades = 3  # value loaded from strategy\n"
+  }
+}

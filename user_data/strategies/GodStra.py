@@ -84,14 +84,12 @@ class GodStra(IStrategy):
     }
 
     # 投资回报率 (ROI) 表:
-    @property
-    def minimal_roi(self):
-        return {
-            "0": self.roi_p1.value,
-            "4818": self.roi_p2.value,
-            "6395": self.roi_p3.value,
-            "22372": 0
-        }
+    minimal_roi = {
+        "0": 0.3556,
+        "4818": 0.21275,
+        "6395": 0.09024,
+        "22372": 0
+    }
     roi_p1 = RealParameter(0.2, 0.5, default=0.3556, space='roi', optimize=True)
     roi_p2 = RealParameter(0.1, 0.3, default=0.21275, space='roi', optimize=True)
     roi_p3 = RealParameter(0.05, 0.15, default=0.09024, space='roi', optimize=True)

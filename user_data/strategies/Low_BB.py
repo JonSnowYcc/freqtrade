@@ -47,20 +47,19 @@ class Low_BB(IStrategy):
 
     INTERFACE_VERSION: int = 3
     # ROI table
-    @property
-    def minimal_roi(self):
-        return {
-            "0": self.roi_p1.value,
-            "1": self.roi_p2.value,
-            "10": self.roi_p3.value,
-            "15": self.roi_p4.value
-        }
-    
     roi_p1 = RealParameter(0.5, 1.2, default=0.9, space='roi', optimize=True)
     roi_p2 = RealParameter(0.03, 0.08, default=0.05, space='roi', optimize=True)
     roi_p3 = RealParameter(0.02, 0.06, default=0.04, space='roi', optimize=True)
     roi_p4 = RealParameter(0.3, 0.7, default=0.5, space='roi', optimize=True)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.minimal_roi = {
+            "0": self.roi_p1.value,
+            "1": self.roi_p2.value,
+            "10": self.roi_p3.value,
+            "15": self.roi_p4.value
+        }
 
     # Optimal stoploss designed for the strategy
     # This attribute will be overridden if the config file contains "stoploss"

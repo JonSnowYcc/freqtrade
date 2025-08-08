@@ -6,6 +6,7 @@
     "tradable_balance_ratio": 0.99,
     "fiat_display_currency": "USD",
     "timeframe": "15m",
+    "user_data_dir": "user_data",
     "minimal_roi": {
         "0": 0.01
     },
