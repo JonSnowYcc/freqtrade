@@ -199,22 +199,29 @@ AVAILABLE_CLI_OPTIONS = {
         "(so `backtest-data.json` becomes `backtest-data-SampleStrategy.json`",
         nargs="+",
     ),
-    "export": Arg(
-        "--export",
-        help="Export backtest results (default: trades).",
-        choices=constants.EXPORT_OPTIONS,
-    ),
     "backtest_notes": Arg(
         "--notes",
         help="Add notes to the backtest results.",
         metavar="TEXT",
     ),
+    "export": Arg(
+        "--export",
+        help="Export backtest results (default: trades).",
+        choices=constants.EXPORT_OPTIONS,
+    ),
+    "exportdirectory": Arg(
+        "--backtest-directory",
+        "--export-directory",
+        help="Directory to use for backtest results. "
+        "Example: `--export-directory=user_data/backtest_results/`. ",
+        metavar="PATH",
+    ),
     "exportfilename": Arg(
-        "--export-filename",
         "--backtest-filename",
+        "--export-filename",
         help="Use this filename for backtest results."
-        "Requires `--export` to be set as well. "
-        "Example: `--export-filename=user_data/backtest_results/backtest_today.json`",
+        "Example: `--backtest-filename=backtest_results_2020-09-27_16-20-48.json`. "
+        "Assumes either `user_data/backtest_results/` or `--export-directory` as base directory.",
         metavar="PATH",
     ),
     "disableparamexport": Arg(
@@ -369,6 +376,11 @@ AVAILABLE_CLI_OPTIONS = {
         help="Print all exchanges known to the ccxt library.",
         action="store_true",
     ),
+    "dex_exchanges": Arg(
+        "--dex-exchanges",
+        help="Print only DEX exchanges.",
+        action="store_true",
+    ),
     # List pairs / markets
     "list_pairs_all": Arg(
         "-a",
@@ -440,6 +452,11 @@ AVAILABLE_CLI_OPTIONS = {
     "include_inactive": Arg(
         "--include-inactive-pairs",
         help="Also download data from inactive pairs.",
+        action="store_true",
+    ),
+    "no_parallel_download": Arg(
+        "--no-parallel-download",
+        help="Disable parallel startup download. Only use this if you experience issues.",
         action="store_true",
     ),
     "new_pairs_days": Arg(

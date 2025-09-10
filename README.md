@@ -4,7 +4,6 @@
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.04864/status.svg)](https://doi.org/10.21105/joss.04864)
 [![Coverage Status](https://coveralls.io/repos/github/freqtrade/freqtrade/badge.svg?branch=develop&service=github)](https://coveralls.io/github/freqtrade/freqtrade?branch=develop)
 [![Documentation](https://readthedocs.org/projects/freqtrade/badge/)](https://www.freqtrade.io)
-[![Maintainability](https://api.codeclimate.com/v1/badges/5737e6d668200b7518ff/maintainability)](https://codeclimate.com/github/freqtrade/freqtrade/maintainability)
 
 Freqtrade is a free and open source crypto trading bot written in Python. It is designed to support all major exchanges and be controlled via Telegram or webUI. It contains backtesting, plotting and money management tools as well as strategy optimization by machine learning.
 
@@ -146,6 +145,8 @@ Telegram is not mandatory. However, this is a great way to control your bot. Mor
 - `/stopentry`: Stop entering new trades.
 - `/status <trade_id>|[table]`: Lists all or specific open trades.
 - `/profit [<n>]`: Lists cumulative profit from all finished trades, over the last n days.
+- `/profit_long [<n>]`: Lists cumulative profit from all finished long trades, over the last n days.
+- `/profit_short [<n>]`: Lists cumulative profit from all finished short trades, over the last n days.
 - `/forceexit <trade_id>|all`: Instantly exits the given trade (Ignoring `minimum_roi`).
 - `/fx <trade_id>|all`: Alias to `/forceexit`
 - `/performance`: Show performance of each finished trade grouped by pair
@@ -153,6 +154,7 @@ Telegram is not mandatory. However, this is a great way to control your bot. Mor
 - `/daily <n>`: Shows profit or loss per day, over the last n days.
 - `/help`: Show help message.
 - `/version`: Show version.
+
 
 ## Development branches
 

@@ -84,9 +84,6 @@ class Configuration:
         if "internals" not in config:
             config["internals"] = {}
 
-        if "pairlists" not in config:
-            config["pairlists"] = []
-
         # Keep a copy of the original configuration file
         config["original_config"] = deepcopy(config)
 
@@ -212,13 +209,28 @@ class Configuration:
         config.update({"datadir": create_datadir(config, self.args.get("datadir"))})
         logger.info("Using data directory: %s ...", config.get("datadir"))
 
+        self._args_to_config(
+            config, argname="exportdirectory", logstring="Using {} as backtest directory ..."
+        )
+
         if self.args.get("exportfilename"):
             self._args_to_config(
                 config, argname="exportfilename", logstring="Storing backtest results to {} ..."
             )
             config["exportfilename"] = Path(config["exportfilename"])
-        else:
-            config["exportfilename"] = config["user_data_dir"] / "backtest_results"
+            if config.get("exportdirectory") and Path(config["exportdirectory"]).is_dir():
+                logger.warning(
+                    "DEPRECATED: Using `--export-filename` with directories is deprecated, "
+                    "use `--backtest-directory` instead."
+                )
+                if config.get("exportdirectory") is None:
+                    # Fallback - assign export-directory directly.
+                    config["exportdirectory"] = config["exportfilename"]
+        if not config.get("exportdirectory"):
+            config["exportdirectory"] = config["user_data_dir"] / "backtest_results"
+        if not config.get("exportfilename"):
+            config["exportfilename"] = None
+        config["exportdirectory"] = Path(config["exportdirectory"])
 
         if self.args.get("show_sensitive"):
             logger.warning(
@@ -379,6 +391,7 @@ class Configuration:
             ("timeframes", "timeframes --timeframes: {}"),
             ("days", "Detected --days: {}"),
             ("include_inactive", "Detected --include-inactive-pairs: {}"),
+            ("no_parallel_download", "Detected --no-parallel-download: {}"),
             ("download_trades", "Detected --dl-trades: {}"),
             ("convert_trades", "Detected --convert: {} - Converting Trade data to OHCV {}"),
             ("dataformat_ohlcv", 'Using "{}" to store OHLCV data.'),
