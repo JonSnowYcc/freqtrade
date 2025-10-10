@@ -1,0 +1,33 @@
+{
+  "strategy_name": "Always50GridLeverageStrategy",
+  "params": {
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 3
+    },
+    "buy": {
+      "buy_ema_period": 34,
+      "buy_grid_distance": 0.091,
+      "buy_leverage_opt": 2.0,
+      "buy_stoploss_opt": -0.099
+    },
+    "sell": {},
+    "protection": {},
+    "roi": {
+      "0": 0.168,
+      "21": 0.044,
+      "49": 0.022,
+      "138": 0
+    },
+    "stoploss": {
+      "stoploss": -0.325
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2025-09-24 06:42:24.362386+00:00"
+}
