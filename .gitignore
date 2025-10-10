@@ -114,6 +114,5 @@ target/
 !config_examples/config_freqai.example.json
 
 docker-compose-*.yml
-*.pyc
-/.venv
-.venv/Lib/site-packages/__pycache__/__editable___freqtrade_2025_6_dev0_finder.cpython-312.pyc
+.pyc
+.venv/
