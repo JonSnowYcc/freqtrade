@@ -166,6 +166,7 @@ class Exchange:
         "proxy_coin_mapping": {},  # Mapping for proxy coins
         # Expected to be in the format {"fetchOHLCV": True} or {"fetchOHLCV": False}
         "ws_enabled": False,  # Set to true for exchanges with tested websocket support
+        "has_delisting": False,  # Set to true for exchanges that have delisting pair checks
     }
     _ft_has: FtHas = {}
     _ft_has_futures: FtHas = {}
@@ -831,9 +832,15 @@ class Exchange:
 
     def validate_freqai(self, config: Config) -> None:
         freqai_enabled = config.get("freqai", {}).get("enabled", False)
-        if freqai_enabled and not self._ft_has["ohlcv_has_history"]:
+        override = config.get("freqai", {}).get("override_exchange_checks", False)
+        if not override and freqai_enabled and not self._ft_has["ohlcv_has_history"]:
             raise ConfigurationError(
                 f"Historic OHLCV data not available for {self.name}. Can't use freqAI."
+            )
+        elif override and freqai_enabled and not self._ft_has["ohlcv_has_history"]:
+            logger.warning(
+                "Overriding exchange checks for freqAI. Make sure that your exchange supports "
+                "fetching historic OHLCV data, otherwise freqAI will not work."
             )
 
     def validate_required_startup_candles(self, startup_candles: int, timeframe: str) -> int:
@@ -893,6 +900,19 @@ class Exchange:
                 f"Freqtrade does not support '{mm_value}' '{trading_mode}' on {self.name}."
             )
 
+    @classmethod
+    def combine_ft_has(cls, include_futures: bool) -> FtHas:
+        """
+        Combine all ft_has options from the class hierarchy.
+        Child classes override parent classes.
+        Doesn't apply overrides from the configuration.
+        """
+        _ft_has = deep_merge_dicts(cls._ft_has, deepcopy(cls._ft_has_default))
+
+        if include_futures:
+            _ft_has = deep_merge_dicts(cls._ft_has_futures, _ft_has)
+        return _ft_has
+
     def build_ft_has(self, exchange_conf: ExchangeConfig) -> None:
         """
         Deep merge ft_has with default ft_has options
@@ -900,9 +920,8 @@ class Exchange:
         This is called on initialization of the exchange object.
         It must be called before ft_has is used.
         """
-        self._ft_has = deep_merge_dicts(self._ft_has, deepcopy(self._ft_has_default))
-        if self.trading_mode == TradingMode.FUTURES:
-            self._ft_has = deep_merge_dicts(self._ft_has_futures, self._ft_has)
+        self._ft_has = self.combine_ft_has(include_futures=self.trading_mode == TradingMode.FUTURES)
+
         if exchange_conf.get("_ft_has_params"):
             self._ft_has = deep_merge_dicts(exchange_conf.get("_ft_has_params"), self._ft_has)
             logger.info("Overriding exchange._ft_has with config params, result: %s", self._ft_has)
@@ -3860,7 +3879,10 @@ class Exchange:
         """
 
         market = self.markets[pair]
-        taker_fee_rate = market["taker"]
+        # default to some default fee if not available from exchange
+        taker_fee_rate = market["taker"] or self._api.describe().get("fees", {}).get(
+            "trading", {}
+        ).get("taker", 0.001)
         mm_ratio, _ = self.get_maintenance_ratio_and_amt(pair, stake_amount)
 
         if self.trading_mode == TradingMode.FUTURES and self.margin_mode == MarginMode.ISOLATED:
@@ -3912,3 +3934,14 @@ class Exchange:
             # describes the min amt for a tier, and the lowest tier will always go down to 0
         else:
             raise ExchangeError(f"Cannot get maintenance ratio using {self.name}")
+
+    def check_delisting_time(self, pair: str) -> datetime | None:
+        """
+        Check if the pair gonna be delisted.
+        This function should be overridden by the exchange class if the exchange
+        provides such information.
+        By default, it returns None.
+        :param pair: Market symbol
+        :return: Datetime if the pair gonna be delisted, None otherwise
+        """
+        return None
