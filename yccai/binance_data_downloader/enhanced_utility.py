@@ -356,18 +356,10 @@ def download_files_concurrent(file_tasks: List[Tuple[str, str, Optional[str]]], 
                     # 记录下载结果，稍后按顺序输出
                     result_type = 'unknown'
                     if success:
-                        # 检查文件是否被跳过（文件已存在）
-                        save_path = get_destination_path(file_path, file_name, date_range)
-                        if os.path.exists(save_path) and os.path.getsize(save_path) > 0:
-                            # 文件已存在，算作跳过
-                            result_type = 'skipped'
-                            results['skipped'] += 1
-                            folder_stats[folder_key]['skipped'] += 1
-                        else:
-                            # 文件下载成功
-                            result_type = 'success'
-                            results['success'] += 1
-                            folder_stats[folder_key]['success'] += 1
+                        # 下载成功，直接标记为成功（不再检查文件是否存在，因为刚下载完）
+                        result_type = 'success'
+                        results['success'] += 1
+                        folder_stats[folder_key]['success'] += 1
                     else:
                         result_type = 'failed'
                         results['failed'] += 1
