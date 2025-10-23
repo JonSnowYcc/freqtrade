@@ -422,6 +422,10 @@ EXCHANGES = {
         "hasQuoteVolume": True,
         "timeframe": "1h",
         "candle_count": 1000,
+        "futures": True,
+        "futures_pair": "BTC/USDT:USDT",
+        "leverage_tiers_public": True,
+        "leverage_in_spot_market": True,
     },
     "coinex": {
         "pair": "BTC/USDT",
@@ -581,10 +585,7 @@ def get_futures_exchange(exchange_name, exchange_conf, class_mocker):
 
         class_mocker.patch("freqtrade.exchange.binance.Binance.fill_leverage_tiers")
         class_mocker.patch(f"{EXMS}.fetch_trading_fees")
-        class_mocker.patch("freqtrade.exchange.okx.Okx.additional_exchange_init")
-        class_mocker.patch("freqtrade.exchange.binance.Binance.additional_exchange_init")
-        class_mocker.patch("freqtrade.exchange.bybit.Bybit.additional_exchange_init")
-        class_mocker.patch("freqtrade.exchange.gate.Gate.additional_exchange_init")
+        class_mocker.patch(f"{EXMS}.ft_additional_exchange_init")
         class_mocker.patch(f"{EXMS}.load_cached_leverage_tiers", return_value=None)
         class_mocker.patch(f"{EXMS}.cache_leverage_tiers")
 
@@ -593,7 +594,7 @@ def get_futures_exchange(exchange_name, exchange_conf, class_mocker):
 
 @pytest.fixture(params=EXCHANGES, scope="class")
 def exchange(request, exchange_conf, class_mocker):
-    class_mocker.patch("freqtrade.exchange.bybit.Bybit.additional_exchange_init")
+    class_mocker.patch(f"{EXMS}.ft_additional_exchange_init")
     exchange, name = get_exchange(request.param, exchange_conf)
     yield exchange, name
     exchange.close()
