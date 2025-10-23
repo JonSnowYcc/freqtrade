@@ -1,0 +1,177 @@
+{
+  "策略说明": "BTC网格策略配置文件 - 基于ETF拯救世界的网格策略思路",
+  "版本": "2.0",
+  "创建时间": "2024-01-01",
+  
+  "基础配置": {
+    "initial_price": 50000,
+    "total_capital": 100000,
+    "max_drawdown": 0.6,
+    "max_grids": 20,
+    "说明": {
+      "initial_price": "BTC初始价格（美元）",
+      "total_capital": "总资金（美元）",
+      "max_drawdown": "最大回撤比例（0.6表示60%）",
+      "max_grids": "最大网格数量"
+    }
+  },
+  
+  "1.0版本配置": {
+    "grid_spacing": 0.05,
+    "enable_profit_retention": false,
+    "enable_progressive_betting": false,
+    "enable_multi_grid": false,
+    "说明": {
+      "grid_spacing": "网格间距（0.05表示5%）",
+      "enable_profit_retention": "是否启用留利润功能",
+      "enable_progressive_betting": "是否启用逐格加码",
+      "enable_multi_grid": "是否启用多网格策略"
+    }
+  },
+  
+  "2.0版本配置": {
+    "grid_spacing": 0.05,
+    "enable_profit_retention": true,
+    "enable_progressive_betting": true,
+    "enable_multi_grid": true,
+    "small_grid_spacing": 0.05,
+    "medium_grid_spacing": 0.15,
+    "large_grid_spacing": 0.30,
+    "small_grid_ratio": 0.5,
+    "medium_grid_ratio": 0.3,
+    "large_grid_ratio": 0.2,
+    "说明": {
+      "small_grid_spacing": "小网格间距（5%）",
+      "medium_grid_spacing": "中网格间距（15%）",
+      "large_grid_spacing": "大网格间距（30%）",
+      "small_grid_ratio": "小网格资金占比（50%）",
+      "medium_grid_ratio": "中网格资金占比（30%）",
+      "large_grid_ratio": "大网格资金占比（20%）"
+    }
+  },
+  
+  "风险控制": {
+    "最大回撤建议": "60%",
+    "资金利用率上限": "100%",
+    "网格间距建议": {
+      "保守型": "3-5%",
+      "平衡型": "5-8%",
+      "激进型": "8-12%"
+    },
+    "说明": "请根据自身风险承受能力调整参数"
+  },
+  
+  "使用建议": {
+    "适用品种": "BTC（数字黄金，不会死）",
+    "适用场景": "震荡市、波动较大的市场",
+    "不适用场景": "单边上涨或下跌趋势",
+    "策略定位": "波段策略，与长期持有策略结合使用",
+    "重要提醒": [
+      "压力测试是最重要的！",
+      "只做不会死的品种",
+      "网格策略是波段策略，不是长期策略",
+      "建议与长期持有策略结合使用",
+      "请根据自身风险承受能力调整参数"
+    ]
+  },
+  
+  "示例配置": {
+    "保守型": {
+      "initial_price": 50000,
+      "total_capital": 50000,
+      "max_drawdown": 0.4,
+      "grid_spacing": 0.03,
+      "max_grids": 15
+    },
+    "平衡型": {
+      "initial_price": 50000,
+      "total_capital": 100000,
+      "max_drawdown": 0.6,
+      "grid_spacing": 0.05,
+      "max_grids": 20
+    },
+    "激进型": {
+      "initial_price": 50000,
+      "total_capital": 200000,
+      "max_drawdown": 0.8,
+      "grid_spacing": 0.08,
+      "max_grids": 25
+    }
+  },
+  
+  "超参优化配置": {
+    "参数搜索空间": {
+      "grid_spacing": [0.03, 0.12],
+      "max_drawdown": [0.3, 0.8],
+      "max_grids": [10, 30],
+      "small_grid_spacing": [0.03, 0.08],
+      "medium_grid_spacing": [0.10, 0.25],
+      "large_grid_spacing": [0.20, 0.50],
+      "small_grid_ratio": [0.3, 0.7],
+      "medium_grid_ratio": [0.1, 0.4],
+      "large_grid_ratio": [0.1, 0.3],
+      "profit_retention_ratio": [0.2, 0.8],
+      "progressive_betting_ratio": [0.02, 0.10],
+      "min_profit_threshold": [0.03, 0.08],
+      "max_position_ratio": [0.6, 0.9]
+    },
+    "优化方法": {
+      "grid_search": {
+        "描述": "网格搜索，遍历所有参数组合",
+        "优点": "全局最优，结果稳定",
+        "缺点": "计算量大，耗时长",
+        "适用场景": "参数空间较小，追求最优解"
+      },
+      "differential_evolution": {
+        "描述": "差分进化算法，全局优化",
+        "优点": "收敛快，适合连续优化",
+        "缺点": "可能陷入局部最优",
+        "适用场景": "参数空间较大，平衡效果和效率"
+      },
+      "bayesian": {
+        "描述": "贝叶斯优化，智能搜索",
+        "优点": "效率高，适合昂贵目标函数",
+        "缺点": "实现复杂，需要先验知识",
+        "适用场景": "计算资源有限，快速优化"
+      }
+    },
+    "优化指标": {
+      "sharpe_ratio": {
+        "描述": "夏普比率，风险调整后收益",
+        "公式": "年化收益率 / 年化波动率",
+        "适用场景": "关注风险调整后收益"
+      },
+      "profit_factor": {
+        "描述": "盈利因子，总盈利/总亏损",
+        "公式": "总盈利 / 总亏损",
+        "适用场景": "关注盈利稳定性"
+      },
+      "max_drawdown_ratio": {
+        "描述": "最大回撤比率",
+        "公式": "最大回撤 / 初始资金",
+        "适用场景": "风险控制优先"
+      },
+      "composite_score": {
+        "描述": "综合评分，多指标加权",
+        "权重": "夏普比率40% + 盈利因子30% + 资金利用率20% + 网格数量10%",
+        "适用场景": "平衡多个目标"
+      }
+    }
+  },
+  
+  "超参优化使用指南": {
+    "步骤1": "准备历史数据（可选，用于更准确的回测）",
+    "步骤2": "选择优化方法（推荐differential_evolution）",
+    "步骤3": "选择优化指标（推荐composite_score）",
+    "步骤4": "运行优化，获得最佳参数",
+    "步骤5": "验证优化结果，进行压力测试",
+    "步骤6": "在实盘前进行充分回测",
+    "注意事项": [
+      "优化结果仅供参考，需要结合实际情况调整",
+      "避免过拟合，保持策略的稳健性",
+      "定期重新优化以适应市场变化",
+      "优化前确保有足够的历史数据",
+      "考虑交易成本和滑点的影响"
+    ]
+  }
+}

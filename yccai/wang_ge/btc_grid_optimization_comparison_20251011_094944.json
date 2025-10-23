@@ -1,0 +1,56 @@
+{
+  "differential_evolution": {
+    "best_params": {
+      "grid_spacing": 0.11999924169308612,
+      "max_drawdown": 0.3005470307946887,
+      "max_grids": 18,
+      "small_grid_spacing": 0.05951726795741213,
+      "medium_grid_spacing": 0.20259492668463108,
+      "large_grid_spacing": 0.48147885035413274,
+      "small_grid_ratio": 0.6160669413598581,
+      "medium_grid_ratio": 0.2882821114175204,
+      "large_grid_ratio": 0.23853272356834002,
+      "profit_retention_ratio": 0.3470396023734632,
+      "progressive_betting_ratio": 0.030547262365033766,
+      "min_profit_threshold": 0.03918260333369282,
+      "max_position_ratio": 0.8318815771228726,
+      "enable_profit_retention": false,
+      "enable_progressive_betting": true,
+      "enable_multi_grid": false
+    },
+    "best_score": 1.763957057728606,
+    "execution_time": 37.770876,
+    "convergence_info": {
+      "method": "differential_evolution",
+      "success": true,
+      "nit": 23,
+      "nfev": 3414
+    }
+  },
+  "bayesian": {
+    "best_params": {
+      "grid_spacing": 0.11888846731950758,
+      "max_drawdown": 0.32628915420813365,
+      "max_grids": 25,
+      "small_grid_spacing": 0.07280913723672046,
+      "medium_grid_spacing": 0.22651150136295092,
+      "large_grid_spacing": 0.22949089380769844,
+      "small_grid_ratio": 0.5597375376397727,
+      "medium_grid_ratio": 0.2738230869411886,
+      "large_grid_ratio": 0.1664393754190385,
+      "profit_retention_ratio": 0.6488058404042469,
+      "progressive_betting_ratio": 0.05883136352239948,
+      "min_profit_threshold": 0.05686716795307671,
+      "max_position_ratio": 0.6928117802598492,
+      "enable_profit_retention": false,
+      "enable_progressive_betting": true,
+      "enable_multi_grid": false
+    },
+    "best_score": 1.722313472852354,
+    "execution_time": 1.092283,
+    "convergence_info": {
+      "method": "bayesian_simplified",
+      "n_calls": 100
+    }
+  }
+}

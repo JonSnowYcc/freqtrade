@@ -1,0 +1,16 @@
+{
+  "initial_price": 50000,
+  "total_capital": 100000,
+  "grid_spacing": 0.11483805979356124,
+  "max_drawdown": 0.3129237579157088,
+  "max_grids": 24,
+  "enable_profit_retention": false,
+  "enable_progressive_betting": false,
+  "enable_multi_grid": false,
+  "small_grid_spacing": 0.04893588512384191,
+  "medium_grid_spacing": 0.1480710177569963,
+  "large_grid_spacing": 0.3854309457133841,
+  "small_grid_ratio": 0.5947127812889478,
+  "medium_grid_ratio": 0.18795914547027162,
+  "large_grid_ratio": 0.21732807324078054
+}
